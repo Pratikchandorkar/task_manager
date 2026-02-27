@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ================= Header Styling ================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #ffffff; /* Light mode background */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header Title */
+header h1 {
+    font-size: 1.8rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* ================= User Info / Login Button ================= */
+#user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Google Login Button */
+#user-info .btn-login {
+    padding: 0.5rem 1.2rem;
+    background-color: #4285F4; /* Google Blue */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#user-info .btn-login:hover {
+    background-color: #357ae8;
+    transform: scale(1.05);
+}
+
+/* Optional: Logout Button Styling */
+#user-info .btn-logout {
+    padding: 0.5rem 1.2rem;
+    background-color: #e53e3e; /* Red */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#user-info .btn-logout:hover {
+    background-color: #c53030;
+    transform: scale(1.05);
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    #user-info {
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 0.5rem;
+    }
+
+    #user-info .btn-login, #user-info .btn-logout {
+        width: 100%;
+        text-align: center;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>📋 Task Manager</h1>
+            <div id="user-info">
+                <a href="/oauth2/authorization/google" class="btn btn-login">Login with Google</a>
+            </div>
+        </header>
+
+        <div id="task-form" style="display: none;">
+            <input type="text" id="taskInput" placeholder="Add a new task..." autocomplete="off">
+            <button onclick="addTask()" class="btn btn-success">Add Task</button>
+        </div>
+
+        <ul id="taskList">
+            <li class="loading">
+                <div class="spinner"></div>
+            </li>
+        </ul>
+
+        <div class="task-stats" id="taskStats" style="display: none;"></div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Task</h2>
+                <span class="close-modal" onclick="closeEditModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="editTaskInput" placeholder="Task title">
+                <input type="hidden" id="editTaskId">
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeEditModal()" class="btn btn-secondary">Cancel</button>
+                <button onclick="saveEditedTask()" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
