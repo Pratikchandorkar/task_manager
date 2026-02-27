@@ -178,3 +178,17 @@ mvn spring-boot:run
 * ✅ CSRF protection disabled for API (REST)
 * ⚠️ Change spring.security.oauth2.client.registration.google.client-secret in production
 * ⚠️ Use HTTPS in production
+
+# Screenshot:
+
+![0](https://github.com/user-attachments/assets/0bc199ed-4877-418e-a66b-7a5e476e43f5)
+![1](https://github.com/user-attachments/assets/8c97202a-4e5a-4391-82a0-41be6f0a1a8d)
+![2](https://github.com/user-attachments/assets/d22cff45-773a-41b9-bf90-b9fc56c581af)
+![3](https://github.com/user-attachments/assets/cdfb9726-74a8-4fb7-ac79-7ab9178701a1)
+![4](https://github.com/user-attachments/assets/e9bffcda-b4d9-45f4-8517-f9ca1e6eea49)
+![5](https://github.com/user-attachments/assets/2fdacf26-97b5-4091-bb01-f806f863548e)
+
+
+
+
+
